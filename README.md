@@ -13,7 +13,7 @@ The project also applies AI prompt techniques in remembering project information
 - memory-bank:
     - projectbrief.md: helps FM maintain seamless project information. 
     - activeContext.md: helps FM remember information about working sessions.
-docs/plans:
+- docs/plans:
     - sprint-plan.md: remembers tasks to be done. 
     - other package instructions: helps LM remember specific functional instructions.
 
