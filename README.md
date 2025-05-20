@@ -2,7 +2,21 @@ Note: This is a personal project currently under development. The setup process,
 
 # 🤖 Mivis - AI Assistant Monorepo
 
-A personal desktop Vietnamese assistant for Windows 11, powered by AI. Built with Tauri, Turborepo, SvelteKit, Rust and xAI Grok.
+Mivis is a personal desktop Vietnamese assistant for Windows 11, powered by AI. Built with Tauri, Turborepo, SvelteKit, Rust and xAI Grok.
+
+In particular, this project is built with vibe coding: 
+- Grok 3 for research, planning, technical consulting. 
+- Gemini 2.5 pro for programming, coding maintenance, documentation.
+
+The project also applies AI prompt techniques in remembering project information: 
+- clinerule, clineignore: helps Foundation Model (FM) maintain consistent behavior.
+- memory-bank:
+    - projectbrief.md: helps FM maintain seamless project information. 
+    - activeContext.md: helps FM remember information about working sessions.
+docs/plans:
+    - sprint-plan.md: remembers tasks to be done. 
+    - other package instructions: helps LM remember specific functional instructions.
+
 
 ## 🌟 Project Features
 
