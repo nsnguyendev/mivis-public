@@ -17,7 +17,6 @@ docs/plans:
     - sprint-plan.md: remembers tasks to be done. 
     - other package instructions: helps LM remember specific functional instructions.
 
-
 ## 🌟 Project Features
 
 - **Voice/Text Interface**: Faster-Whisper STT (using PhoWhisper model) for speech-to-text and VietTTS for text-to-speech.
