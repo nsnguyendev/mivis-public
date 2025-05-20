@@ -1,0 +1,19 @@
+{
+  "extends": "../../packages/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./", // As tests are at the root of this package's TS content
+    "module": "NodeNext", // Changed to NodeNext to align with moduleResolution
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"], // Include types for Node.js and Jest
+    "lib": ["es2017", "dom"], // Added for Promise support and common browser types (though DOM might not be strictly needed for Node)
+    // Ensure strict type checking options are inherited or set
+    "strict": true,
+    "skipLibCheck": true // Can be useful in monorepos
+  },
+  "include": [
+    "./tests/**/*.ts" // Only include test files for TypeScript compilation
+  ],
+  "exclude": ["node_modules", "dist"]
+}

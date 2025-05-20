@@ -1,0 +1,21 @@
+{
+  "extends": "../../packages/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".", // Ensuring this is the package root
+    "baseUrl": ".", // Added baseUrl
+    "paths": { // Added paths for potential aliasing, though not directly for this issue
+      "@/*": ["src/*"]
+    },
+    "module": "NodeNext", // To align with base config if it uses NodeNext moduleResolution
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"],
+    "lib": ["es2017", "dom"],
+    "declaration": true, // Generate .d.ts files
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"], // Include tests for type checking
+  "exclude": ["node_modules", "dist"]
+}

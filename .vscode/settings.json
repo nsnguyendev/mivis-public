@@ -1,0 +1,10 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "rust-analyzer.linkedProjects": [
+    "./apps/assistant/src-tauri/Cargo.toml"
+  ]
+}

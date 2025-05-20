@@ -1,0 +1,16 @@
+.turbo/
+.vscode/
+.env 
+.env.secrets.* 
+.env.*
+*.pem 
+.next/
+node_modules/ 
+dist/ 
+build/ 
+coverage/ 
+.DS_Store 
+*.mdj 
+*.bak 
+*.tmp 
+*.cache 

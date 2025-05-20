@@ -1,0 +1,139 @@
+.clinerules for Desktop Assistant - Mivis
+
+Project Overview
+Desktop Assistant for Windows 11, built with Tauri, Turborepo, and TypeScript. Supports voice/text input (Whisper, VietTTS), PC control (Node.js), web search (Tavily), and third-party integrations (Gmail, Discord, Spotify via Anthropic MCP). Monorepo structure with /apps/assistant (Tauri app) and /packages (ai, mcp-client, system-control, web-search, stt, tts).
+
+Security
+Sensitive Files
+DO NOT read or modify:
+
+.env
+*/config/secrets.
+**/*.pem
+Any file containing API keys, tokens, or credentials
+
+Security Practices
+
+Never commit sensitive files.
+Use environment variables for secrets (XAI_API_KEY, TAVILY_API_KEY, MCP_SERVER_URL).
+Keep credentials out of logs and output.
+
+Code Style & Patterns
+
+Use TypeScript for all JavaScript code.
+Follow ESLint and Prettier configs.
+Prefer functional programming, avoid inheritance.
+Use repository pattern for data access (e.g., /packages/mcp-client).
+
+Error handling pattern:
+```javascript
+try {
+  // Code
+} catch (error) {
+  console.error(`[ERROR] ${error.message}`);
+  throw new Error(`Failed to [action]: ${error.message}`);
+}
+```
+
+Generate API clients using OpenAPI Generator for MCP APIs when needed (e.g., complex APIs); otherwise, use TypeScript SDKs (e.g., Tavily SDK).
+
+Place generated code in /packages/*.
+Keep functions short (< 50 lines), single responsibility.
+Use async/await for API calls, avoid callbacks.
+
+
+Documentation Requirements
+
+Update README.md with new features or setup changes.
+Maintain CHANGELOG.md at the end of each Sprint.
+Update Memory Bank (/memory-bank/*) after major tasks:
+projectbrief.md: Project goals, tech stack.
+activeContext.md: Current task context.
+
+
+Create Architecture Decision Records (ADRs) in /docs/adr for:
+Major dependency changes.
+Architectural pattern changes.
+Follow template in /docs/adr/template.md.
+
+
+
+Workflow with Cline
+
+Understand project essential:
+Read docs/plans/sprint-plan.md to get your sprint project information.
+
+Before coding:
+Read Memory Bank (/memory-bank/*) in order: projectbrief.md, activeContext.md.
+Explain your understand, rate your confience from 1 to 10.
+Write .md plan in /docs/plans/[task-name].md for complex tasks.
+You have to confirm understanding with “YARRR!” before you use any tool.
+
+During coding:
+# Essential infomation
+When handle task development, always read file docs\adr\index-apps.md for app information.
+
+# Coding best practices for Cline in VS Code, optimized for foundation model parsing
+# Naming Conventions
+variable_naming: descriptive # Use descriptive names (e.g., totalUsers, not x)
+function_naming: descriptive # Use descriptive function names (e.g., calculateMonthlySalary)
+naming_convention: snake_case # Enforce snake_case for Python, adjust per language
+
+# Variable Rules
+type_annotations: when_necessary # Only use type annotations for complex or ambiguous variables
+avoid_global_variables: true # Minimize global variables to reduce coupling
+
+# Function Rules
+single_responsibility: true # Each function should have one responsibility
+docstring_required: true # Functions must have docstrings
+docstring_format:
+  - explain: required # Describe what the function does
+  - params: required # List parameters and their purpose
+  - returns: required # Describe return value
+  - usage: required # Provide usage example
+error_handling: try_except # Use try-except for error handling
+
+# Clean Code
+use_linter: true # Enforce linter usage (e.g., flake8 for Python, eslint for JS)
+boy_scout_rule: true # Refactor messy code when encountered
+avoid_spaghetti_code: true # Ensure clear code flow
+avoid comment in json file.
+
+# Design Patterns
+allowed_patterns:
+  - singleton # For shared resources (e.g., database connection)
+  - factory # For flexible object creation (e.g., AI model switching)
+  - mvc # For structured app development
+pattern_suggestion: plan_mode # Use Cline Plan Mode to suggest patterns
+
+# Cline-Specific Rules
+plan_mode: recommended # Use Plan Mode for complex tasks or design
+act_mode: simple_tasks # Use Act Mode for quick fixes or util functions
+prompt_style: clear_concise # Write clear, specific prompts (e.g., "Create a Python function to validate email")
+diff_review: required # Always review diff view before applying changes
+restricted_files:
+  - .env
+  - secrets/*
+
+
+After coding:
+Update activeContext.md with task details (e.g., “Created Spotify API integration”).
+Update README.md and CHANGELOG.md if needed.
+Update docs\adr\index-apps.md if needed.
+
+
+Use /new_task for long tasks to preserve context.
+Ask confidence level (1-10) before/after tool use.
+Prompt examples:
+```plaintext
+“Cline, create React component for chat box in /apps/assistant/src/components/ChatBox.tsx, integrate Vercel AI SDK, test with Jest, update activeContext.md. YARRR!”
+“Cline, refactor /packages/mcp-client/src/spotify.ts to use async/await, add Jest tests, update progress.md. Confidence check: 1-10.”
+“Cline, generate OpenAPI client for MCP Gmail API in /packages/mcp-client/generated, test integration, update CHANGELOG.md.”
+```
+
+Performance
+
+Limit context to relevant files using @file or @folder.
+Monitor context window with Cline’s progress bar, trigger /new_task if > 50%.
+Avoid reading large files (handled by .clineignore).
+
