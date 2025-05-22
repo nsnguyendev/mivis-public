@@ -17,25 +17,17 @@ The project also applies AI prompt techniques in remembering project information
     - sprint-plan.md: remembers tasks to be done. 
     - other package instructions: helps LM remember specific functional instructions.
 
-## 🌟 Project Features
+ ## 😎 Usage
 
-- **Voice/Text Interface**: Faster-Whisper STT (using PhoWhisper model) for speech-to-text and VietTTS for text-to-speech.
-- **AI-Powered**: xAI Grok for natural language processing and automation.
-- **Lightweight**: Built with Tauri, aims for low resource usage and PC friendly.
-- **Monorepo**: Organized with Turborepo for easy scaling.
+Mivis will chat with you in Vietnamese, you can choose to chat by text or voice.
+
+To interact with Mivis:
+- **Voice**: Speak in Vietnamese.
+- **Text**: Type in the chat box. 
 
 ## 🪄 Demo
 
 https://github.com/user-attachments/assets/2a3f4d56-eb7b-4fc3-b243-3719f1830b9d
-
-## 🔮 Implementation Goals
-
-- **PC Control**: Open apps, read/write files, monitor CPU/RAM (Node.js).
-- **Web Search**: Search and summarize web results (Tavily).
-- **Third-Party Integration**:
-    - Gmail: Read, summarize, and send emails.
-    - Discord: Send/receive messages with rule-based replies.
-    - Spotify: Play songs, save music preferences (rock, indie).
 
 ## ⚙️ Prerequisites
 
@@ -46,21 +38,6 @@ https://github.com/user-attachments/assets/2a3f4d56-eb7b-4fc3-b243-3719f1830b9d
 - **Docker Desktop**: Installed and running (required for VietTTS).
 - **Conda**: Miniconda or Anaconda (recommended for managing Python environment for STT).
 - **API Keys**: xAI API Key (for Grok).
-
-## ✅ To-Do / Future Enhancements
-
-- [x] **Core Functionality**: 
-    Voice/text -> STT (Whisper) -> AI API response -> TTS (VietTTS).
-- [ ] **Reengineering core functionality**:
-    Frontend: SvelteKit + Vercel AI Chatbot framework for Svelte.
-    ICP Wrapper: TypeScript.
-    Backend: Rust/Node.js
-- [ ] **MCP Client & Agent in Frontend**
-- [ ] **Web Search with Tavily**
-- [ ] **PC Control in Backend**
-- [ ] **User Settings**
-- [ ] **UI/UX Polish**
-- [ ] **Optimize STT/TTS**
 
 ## 🛠️ Installation
 
@@ -151,15 +128,16 @@ To create a standalone application:
 pnpm tauri build
 ```
 
-## 😎 Usage
+## 🌟 Project Features
 
 Before starting Mivis:
 1.  Ensure your STT Conda environment (`whisper-cuda`) is active if running Python scripts directly. (The Tauri application's sidecar for STT should manage its environment, but this is good practice for direct script testing).
 2.  Verify the VietTTS Docker container is running. You can check with `docker ps` (should list a container for `viet-tts`) or navigate to the `packages/tts/models/viet-tts` directory and run `docker compose ps`.
 
-To interact with Mivis:
-- **Voice**: Speak in Vietnamese.
-- **Text**: Type in the chat box. 
+- **Voice/Text Interface**: Faster-Whisper STT (using PhoWhisper model) for speech-to-text and VietTTS for text-to-speech.
+- **AI-Powered**: xAI Grok for natural language processing and automation.
+- **Lightweight**: Built with Tauri, aims for low resource usage and PC friendly.
+- **Monorepo**: Organized with Turborepo for easy scaling.
 
 ## 🏗️ Project Structure
 
